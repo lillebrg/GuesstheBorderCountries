@@ -1,0 +1,146 @@
+* {
+    font-family: 'Barlow', sans-serif;
+}
+html {
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  height: 100vh;
+}
+
+body {
+  margin-bottom: 60px;
+}
+#background {
+    height: 100vh;
+    background-image: url(earth-planet.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#Container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#Title{
+    color: white;
+}
+#HelpingItems {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+}
+#GuessingFlags{
+    margin-top: 10px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.FlagBox {
+    width: 160px;
+    height: 106.5px;
+    border-color: white;
+    border-style: solid;
+    border-width: 2px;
+}
+.FlagGuessOptions {
+    width: 156px;
+    height: 103px;
+}
+#dropdownandbutton{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+
+.search-dropdown {
+    position: relative;
+    width: 100%; /* Adjust the width as needed */
+}
+
+/* Style the search input */
+#searchInput {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+}
+
+/* Style the dropdown results */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 87px; /* Adjust the max height as needed */
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+}
+
+    /* Style individual dropdown items */
+    .dropdown li {
+        padding: 5px;
+        cursor: pointer;
+    }
+
+        /* Highlight the selected dropdown item */
+        .dropdown li.selected {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+#GuessBtn{
+    height: 35.5px;
+    border-radius:0 5px 5px 0;
+    background-color: black;
+    color: white;
+}
+    #GuessBtn:hover{
+        background-color: darkgray;
+    }
+.White {
+    color: white;
+    margin: 0;
+}
+#Correct{
+    background-color: green;
+}
+#Wrong{
+    background-color: red;
+}
+
+#howToPlayBtn {
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+    #howToPlayBtn:hover {
+        background-color: darkgray;
+    }

@@ -1,0 +1,70 @@
+﻿@page
+@model APIGuessBorderCountries.Pages.IndexModel
+@{
+    ViewData["Title"] = "Borderdle";
+}
+<div id="Container">
+    <h1 id="Title">Guess the BorderContries!</h1>
+    <div id="HelpingItems">
+        <img id="helpingFlag" src="@Model.HelpingFlag"/>
+        <h3>@Model.HelpingName</h3>
+    </div>
+    <div id="GuessingFlags">
+        @for (int i = 0; i < Model.correctFlags.Count; i++)
+        {
+            <div class="FlagBox">
+                <div @(Model.correctFlags[i].isGuessed == true ? "" : "hidden")>
+                    <img class="FlagGuessOptions" src="@Model.correctFlags[i].flag" />
+                    <h4>@Model.correctFlags[i].name</h4>
+                </div>
+            </div>
+        } 
+    </div>
+    <form method="post" asp-page-handler="UserGuess">    
+        <div id="dropdownandbutton">
+            <div class="search-dropdown">
+                <input type="text" id="searchInput" placeholder="Search..." asp-for="inputUserGuess">
+                <div class="dropdown">
+                    <ul id="dropdownList">
+                        @foreach (var item in Model.contries)
+                        {
+                            <li>@item</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <button id="GuessBtn" onclick="this.form.submit()">Guess</button>
+        </div>
+        <p id="Correct" class="White">@Model.correctAnswer</p>
+        <p id="Wrong" class="White">@Model.wrongAnswer</p>
+    </form>
+    <button id="howToPlayBtn">How To Play</button>
+</div> 
+
+<div class="col-xs-10">
+    <div class="modal fade" id="howtoplay">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="howToPlayModul" method="post">
+                    <div class="modal-header">
+                        <h4 class="modal-title">How To Play:</h4>
+                    </div>
+                    <div class="modal-body btnCenter">
+                        <p>The Big flag above is your "Helping Country"</p>
+                        <p>You need to guess all the Borders the "Helping Country" has!</p>
+                        <p>Countries that are not physically touching DO NOT COUNT!(e.g. Denmark & Sweden do no share borders...)</p>
+                        <button type="button" id="BtnHideModal" class="btn btn-primary">
+                            Got It!
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="error-message">@ViewData["ErrorMessage"]</div>
+}
